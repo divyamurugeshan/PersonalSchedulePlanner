@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content=" width=device-width, initial-scale=1.0">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="psp.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <title>Personal Schedule Planner</title>
+</head>
+
+<body>
+  <div class="container heading-container">
+    <p>Personal Schedule Planner</p>
+    <div class="d-flex"> 
+      <button id="add-task" class="btn add-item btn-secondary" onclick="addTask()">Add task</button>
+      <button id="clear-list" class="btn add-item btn-danger" onclick="clearList()">Clear list</button>
+    </div>
+  </div>
+
+  <div class="container todo-list-container">
+    <div id="warning-text">
+      <span class="material-icons" style="color:#f3c639;margin:0 5px;">warning</span>
+      <h6 style="margin:0;color:#969696;">Your schedule is empty! Plan your tasks.</h6>
+    </div>
+    <ul id="todo-list"></ul>
+  </div>
+
+  <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="itemModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div id="modal-body-text" class="form-group add-modal-body">
+              <textarea style="border: 1px solid black;" class="form-control" id="item-info"></textarea>
+              <div style="margin-top: 10px;">
+                <label for="fromTime">From:</label>
+                <input type="time" id="fromTime" name="fromTime">
+                <label for="toTime">To:</label>
+                <input type="time" id="toTime" name="toTime">
+                <label for="dateInput">Date:</label>
+                <input type="date" id="dateInput" name="dateInput">
+              </div>
+              <h6 id="input-empty-error-message" style="color:red;"></h6>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="modal-btn" type="button" class="btn btn-primary" onclick="addOrEditList()"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="psp.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
